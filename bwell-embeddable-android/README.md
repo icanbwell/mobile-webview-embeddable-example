@@ -18,8 +18,8 @@ INITIAL_PATH=home
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `BWELL_ENVIRONMENT` | Yes | One of: `dev`, `staging`, `client-sandbox`, `prod` |
-| `BWELL_CLIENT_ID` | Yes | Your b.well client identifier |
-| `CLIENT_USER_TOKEN` | Yes | JWT token for user authentication |
+| `BWELL_CLIENT_ID` | Yes | Your b.well client identifier (e.g. - `acmecorp`) |
+| `CLIENT_USER_TOKEN` | Yes | Client token for user authentication |
 | `INITIAL_PATH` | No | Initial route path (defaults to empty) |
 
 ### 2. Build and Run
