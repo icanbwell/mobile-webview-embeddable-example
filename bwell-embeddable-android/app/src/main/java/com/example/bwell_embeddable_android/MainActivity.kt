@@ -1,6 +1,7 @@
 package com.example.bwell_embeddable_android
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private lateinit var errorContainer: ScrollView
     private lateinit var errorText: TextView
-    private var hasInjectedToken = false
+    private var shouldInjectToken = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -112,14 +113,19 @@ class MainActivity : AppCompatActivity() {
         """.trimIndent()
 
         webView.webViewClient = object : WebViewClient() {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                shouldInjectToken = true
+            }
+
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 Log.d(TAG, "Page finished loading: $url")
-                if (!hasInjectedToken) {
+                if (shouldInjectToken) {
                     webView.evaluateJavascript(tokenSetterJs) { result ->
                         Log.d(TAG, "JS injection result: $result")
                     }
-                    hasInjectedToken = true
+                    shouldInjectToken = false
                 }
             }
 
