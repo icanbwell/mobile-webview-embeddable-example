@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var errorContainer: ScrollView
     private lateinit var errorText: TextView
     private var hasInjectedToken = false
+    private var refreshTokenJs: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,8 +82,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         val userToken = BuildConfig.CLIENT_USER_TOKEN
+        refreshTokenJs = """
+            (function() {
+                async function refreshToken() {
+                    try {
+                        await bwell.setUserToken('$userToken');
+                        console.log('User token refreshed successfully');
+                    } catch (e) {
+                        console.error('Failed to refresh user token:', e);
+                    }
+                }
+                if (typeof bwell !== 'undefined') {
+                    refreshToken();
+                }
+            })();
+        """.trimIndent()
+
         val tokenSetterJs = """
             (function() {
+                var TOKEN_REFRESH_INTERVAL = 300000;
+
                 async function setUserToken() {
                     try {
                         await bwell.setUserToken('$userToken');
@@ -101,10 +120,17 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                if (typeof bwell !== 'undefined' && bwell.isInitialized) {
+                function initAndSchedule() {
                     setUserToken();
+                    setInterval(function() {
+                        setUserToken();
+                    }, TOKEN_REFRESH_INTERVAL);
+                }
+
+                if (typeof bwell !== 'undefined' && bwell.isInitialized) {
+                    initAndSchedule();
                 } else if (typeof bwell !== 'undefined') {
-                    bwell.once('initialized', setUserToken);
+                    bwell.once('initialized', initAndSchedule);
                 } else {
                     console.error('bwell object not found on window');
                 }
@@ -140,6 +166,16 @@ class MainActivity : AppCompatActivity() {
         val url = buildUrl()
         Log.d(TAG, "Loading URL: $url")
         webView.loadUrl(url)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (hasInjectedToken) {
+            Log.d(TAG, "App resumed — refreshing user token")
+            webView.evaluateJavascript(refreshTokenJs) { result ->
+                Log.d(TAG, "Resume token refresh result: $result")
+            }
+        }
     }
 
     private fun buildUrl(): String {
