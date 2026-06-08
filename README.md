@@ -8,6 +8,7 @@ Example mobile apps demonstrating how to render b.well's embeddable solution via
 |----------|-----------|--------|
 | Android | [`bwell-embeddable-android/`](./bwell-embeddable-android/) | Available |
 | iOS | `bwell-embeddable-ios/` | Coming soon |
+| React Native | [`bwell-embeddable-react-native/`](./bwell-embeddable-react-native/) | Available |
 
 ## Overview
 
