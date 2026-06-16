@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "RNCWebViewSpec_autolinked_build",
+		"source" : "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native-webview/android/build/generated/source/codegen/jni"
+	}
+}

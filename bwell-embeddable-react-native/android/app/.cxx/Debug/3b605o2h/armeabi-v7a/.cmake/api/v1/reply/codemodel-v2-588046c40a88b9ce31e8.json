@@ -1,0 +1,113 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "RNCConfigSpec_autolinked_build",
+					"jsonFile" : "directory-RNCConfigSpec_autolinked_build-Debug-4c5653e82a1879e9227d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native-config/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "RNCWebViewSpec_autolinked_build",
+					"jsonFile" : "directory-RNCWebViewSpec_autolinked_build-Debug-861bd994d0cb0050bb3a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native-webview/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "appmodules",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "appmodules::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appmodules-Debug-3526b6de5a0697433429.json",
+					"name" : "appmodules",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "react_codegen_RNCConfigSpec::@89f1b79ed4954e2f2cff",
+					"jsonFile" : "target-react_codegen_RNCConfigSpec-Debug-c7ba745438cdd18e6fc1.json",
+					"name" : "react_codegen_RNCConfigSpec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "react_codegen_RNCWebViewSpec::@eb48929f9f7453740a6c",
+					"jsonFile" : "target-react_codegen_RNCWebViewSpec-Debug-f1967260d3381d02ce80.json",
+					"name" : "react_codegen_RNCWebViewSpec",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/android/app/.cxx/Debug/3b605o2h/armeabi-v7a",
+		"source" : "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

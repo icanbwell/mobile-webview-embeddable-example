@@ -1,0 +1,43 @@
+{
+  "buildFiles": [
+    "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native-config/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native-webview/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/shawnshaw/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/android/app/.cxx/Debug/3b605o2h/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/shawnshaw/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/android/app/.cxx/Debug/3b605o2h/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "react_codegen_RNCConfigSpec::@89f1b79ed4954e2f2cff": {
+      "artifactName": "react_codegen_RNCConfigSpec",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
+    },
+    "react_codegen_RNCWebViewSpec::@eb48929f9f7453740a6c": {
+      "artifactName": "react_codegen_RNCWebViewSpec",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
+    },
+    "appmodules::@6890427a1f51a3e7e1df": {
+      "artifactName": "appmodules",
+      "abi": "arm64-v8a",
+      "output": "/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/android/app/build/intermediates/cxx/Debug/3b605o2h/obj/arm64-v8a/libappmodules.so",
+      "runtimeFiles": [
+        "/Users/shawnshaw/.gradle/caches/8.10.2/transforms/182643b8e1fcf38a4faa7818c98ca73d/transformed/jetified-fbjni-0.6.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so",
+        "/Users/shawnshaw/.gradle/caches/8.10.2/transforms/2a5d9ab61d3efd400aa91cf1a0a835ba/transformed/jetified-react-android-0.76.5-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
+        "/Users/shawnshaw/.gradle/caches/8.10.2/transforms/2a5d9ab61d3efd400aa91cf1a0a835ba/transformed/jetified-react-android-0.76.5-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so"
+      ]
+    }
+  }
+}

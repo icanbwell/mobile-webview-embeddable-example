@@ -1,6 +1,8 @@
-apply plugin: "com.android.application"
-apply plugin: "org.jetbrains.kotlin.android"
-apply plugin: "com.facebook.react"
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("com.facebook.react")
+}
 
 // Load config variables from .env via react-native-config
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
@@ -41,11 +43,21 @@ android {
     }
 }
 
+// Exclude the old standalone com.facebook.hermes:hermes-android that gets
+// pulled in transitively by react-native-webview -> react-native:+.
+// That artifact's HermesExecutor calls SoLoader.loadLibrary("hermes_executor")
+// which no longer exists in RN 0.71+.  Our explicit com.facebook.react:hermes-android
+// dep provides the correct HermesExecutor that loads libhermes.so.
+configurations.all {
+    exclude group: 'com.facebook.hermes', module: 'hermes-android'
+}
+
 dependencies {
+    implementation(project(':react-native-config'))
+    implementation(project(':react-native-webview'))
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:hermes-android")
 }
 
 react {
-    // Autolinking handles react-native-config and react-native-webview
 }

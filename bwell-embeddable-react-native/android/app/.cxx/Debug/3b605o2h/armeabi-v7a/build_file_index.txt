@@ -1,0 +1,3 @@
+/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native-config/android/build/generated/source/codegen/jni/CMakeLists.txt
+/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native-webview/android/build/generated/source/codegen/jni/CMakeLists.txt
+/Users/shawnshaw/Desktop/work/mobile-webview-embeddable-example/bwell-embeddable-react-native/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt

@@ -12,7 +12,27 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.3.0")
+        classpath("com.android.tools.build:gradle:8.6.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        // Make 'apply plugin: com.facebook.react' resolvable in library subprojects
+        // that have their own buildscript block (react-native-config, react-native-webview).
+        // The JAR is already compiled by the pluginManagement includeBuild; adding it here
+        // registers the plugin ID in the root buildscript classpath. Java's parent-delegation
+        // ensures the actual class is loaded from the settings classloader (not duplicated).
+        classpath(files("../node_modules/@react-native/gradle-plugin/react-native-gradle-plugin/build/libs/react-native-gradle-plugin.jar",
+                        "../node_modules/@react-native/gradle-plugin/shared/build/libs/shared.jar"))
+    }
+}
+
+// Redirect legacy Maven artifact names to the modern equivalents so that
+// transitive dependencies (e.g. react-native-webview) don't pull in the old
+// com.facebook.hermes:hermes-android whose HermesExecutor still tries to load
+// the defunct libhermes_executor.so (not present in RN 0.71+).
+subprojects {
+    configurations.all {
+        resolutionStrategy.dependencySubstitution {
+            substitute(module("com.facebook.react:react-native")).using(module("com.facebook.react:react-android:0.76.5"))
+            substitute(module("com.facebook.hermes:hermes-android")).using(module("com.facebook.react:hermes-android:0.76.5"))
+        }
     }
 }
